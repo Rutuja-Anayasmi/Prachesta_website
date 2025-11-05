@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prachesta Charitable Trust</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Generosity - Charity, Fundraising & Non-Profit HTML5 Template">
+  <meta name="author" content="xenioushk">
+  <link rel="shortcut icon" href="images/logo_1_.png" />
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+  <!-- The styles -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+<!-- With this line -->
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="css/owl.carousel.min.css" rel="stylesheet" type="text/css">
+  <link href="css/animate.css" rel="stylesheet" type="text/css">
+  <link href="css/venobox.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+ 
+
+  <style>
+    /* body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    } */
+    .calendar-header {
+      text-align: center;
+      margin: 40px 0 20px 0;
+    }
+
+    .month-section {
+      margin-bottom: 40px;
+    }
+
+    .month-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #0d6efd;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .event-card {
+      display: flex;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .event-card:hover {
+      transform: scale(1.02);
+    }
+
+    .event-card img {
+      width: 160px;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .event-content {
+      padding: 12px;
+      margin-left:20px;
+      flex: 1;
+    }
+
+    .event-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .event-location {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .event-desc {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    /* Modal */
+    .modal-event-img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+.modal-custom {
+  max-width: 60%;
+  height: 92vh; /* taller than viewport */
+}
+
+.modal-content {
+  height: 100%;
+}
+
+.modal-body {
+  overflow-y: auto; /* scroll if content is too big */
+  max-height: 80vh; /* limits body height */
+}
+/* 🔧 Fix for uneven image height on mobile */
+@media (max-width: 768px) {
+  .event-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .event-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .event-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 10px 15px;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <div id="preloader">
+    <span class="margin-bottom"><img src="images/loader.gif" alt="Loading......" /></span>
+  </div>
+
+  <div id="header-placeholder"></div>
+
+
+  <!-- end main-header  -->
+
+<section class="section-content-block section-secondary-bg">
+  <div class="calendar-header">
+    <h2>Year At <span style="color: #80b53f;">A Glance</span></h2>
+    <p>Celebrating the milestones we’ve completed and looking forward to the exciting events ahead.</p>
+  </div>
+
+  <div class="container" id="eventsContainer"></div>
+
+  <!-- Event Modal -->
+  <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-custom">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="modalTitle"></h4>
+        </div>
+        <div class="modal-body">
+          <img src="" id="modalImage" class="modal-event-img" alt="Event Image">
+          <p><strong>Date: </strong><span id="modalDate"></span></p>
+          <p><strong>Location: </strong><span id="modalLocation"></span></p>
+          <p id="modalDesc"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- START FOOTER  -->
+
+  <div id="footer-placeholder"></div>
+
+  <!-- END FOOTER  -->
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Load header
+      fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('header-placeholder').innerHTML = data;
+        });
+
+      // Load footer
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer-placeholder').innerHTML = data;
+        });
+    });
+  </script>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> -->
+<script>
+  // Your events array
+  const events = [
+    { month: "Jan'25", title: "Eye check up camp", location: "Badlapur", description: "Promoting pro-active eye health awareness", image: "images/community welfare/community_56.jpg", date: "Jan 2025" },
+    { month: "Jan'25", title: "Annual sports day", location: "Ambernath", description: "Promote a complete healthy environment", image: "images/general/general_10.jpg", date: "Jan 2025" },
+    { month: "April'25", title: "Story Book distribution", location: "Kurla", description: "Promoting education for underprivileged children", image: "images/education/education_27.jpg", date: "April 2025" },
+    { month: "April'25", title: "Launching of day school", location: "Panvel", description: "Promoting education for underprivileged children", image: "images/general/launching_school.jfif", date: "April 2025" },
+    { month: "July'25", title: "Inauguration of 1st coaching class", location: "Koparkhairane", description: "Promoting education for underprivileged children", image: "images/education/education_14.jpg", date: "July 2025" },
+    { month: "Sept'25", title: "Medical Camp", location: "Panvel", description: "Promoting pro-active health awareness", image: "images/medical_camp/medical_15.jpeg", date: "Sept 2025" },
+    { month: "Oct'25", title: "Garments/Study Materials/Toiletries distribution", location: "To be Decided", description: "Support the needy", image: "images/community welfare/community_28.jpg", date: "Oct 2025" },
+    { month: "Nov'25", title: "Annual day", location: "Panvel", description: "Demonstrate to Partners about the progress of the project", image: "images/general/annual_day.jfif", date: "Nov 2025" },
+    { month: "Jan'26", title: "Annual sports day", location: "Ambernath", description: "Promote a complete healthy environment", image: "images/fun events/fun_events_15.jpg", date: "Jan 2026" }
+  ];
+
+  const container = document.getElementById("eventsContainer");
+  const grouped = {};
+
+  // Group events by month
+  events.forEach(ev => {
+    if (!grouped[ev.month]) grouped[ev.month] = [];
+    grouped[ev.month].push(ev);
+  });
+
+  // Generate event cards
+  for (const month in grouped) {
+    const section = document.createElement("div");
+    section.className = "month-section";
+    section.innerHTML = `<div class="month-title">${month}</div>`;
+
+    grouped[month].forEach(ev => {
+      const card = document.createElement("div");
+      card.className = "event-card";
+      card.innerHTML = `
+        <img src="${ev.image}" alt="${ev.title}">
+        <div class="event-content">
+          <div class="event-title">${ev.title}</div>
+          <div class="event-location"><i class="fa fa-map-marker"></i> ${ev.location}</div>
+          <div class="event-desc">${ev.description}</div>
+        </div>
+      `;
+      // Click to open modal
+      card.addEventListener("click", () => {
+        $('#modalTitle').text(ev.title);
+        $('#modalDesc').text(ev.description);
+        $('#modalDate').text(ev.date);
+        $('#modalLocation').text(ev.location);
+        $('#modalImage').attr('src', ev.image);
+        $('#eventModal').modal('show');
+      });
+      section.appendChild(card);
+    });
+
+    container.appendChild(section);
+  }
+</script>
+
+  <script>
+    window.currentPage = "about"; // Or set appropriate page name
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Load header
+      fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('header-placeholder').innerHTML = data;
+          highlightMenu();
+          loadRazorpayButton(); // ✅ Inject Razorpay after header is loaded
+        });
+
+      // Load footer
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer-placeholder').innerHTML = data;
+        });
+    });
+
+    function highlightMenu() {
+      if (!window.currentPage) return;
+
+      var links = document.querySelectorAll('.nav.navbar-nav li a');
+      links.forEach(function (link) {
+        var page = link.getAttribute('data-page');
+        if (page === window.currentPage) {
+          link.classList.add('link-active');
+        }
+      });
+    }
+
+    function loadRazorpayButton() {
+      const container = document.getElementById('razorpay-button-form');
+      if (!container) return;
+
+      container.innerHTML = ""; // clear old if any
+
+      const script = document.createElement('script');
+      script.src = "https://checkout.razorpay.com/v1/payment-button.js";
+      script.setAttribute("data-payment_button_id", "pl_FR1fOi1ew0Qjjm");
+      script.async = true;
+      container.appendChild(script);
+    }
+  </script>
+
+  <a id="backTop">Back To Top</a>
+
+
+  <script src="js/wow.min.js"></script>
+  <script src="js/jquery.backTop.min.js "></script>
+  <script src="js/waypoints.min.js"></script>
+  <script src="js/waypoints-sticky.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.counterup.min.js"></script>
+  <script src="js/venobox.min.js"></script>
+  <script src="js/custom-scripts.js"></script>
+
+
+</body>
+
+</html>

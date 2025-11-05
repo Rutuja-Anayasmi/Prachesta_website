@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>Prachesta Charitable Trust</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Generosity - Charity, Fundraising & Non-Profit HTML5 Template">
+    <meta name="author" content="xenioushk">
+    <link rel="shortcut icon" href="images/logo_1_.png" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    <!-- The styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/owl.carousel.min.css" rel="stylesheet" type="text/css">
+    <link href="css/animate.css" rel="stylesheet" type="text/css">
+    <link href="css/venobox.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/main.js"></script>
+
+<body>
+
+    <div id="preloader">
+        <span class="margin-bottom"><img src="images/loader.gif" alt="Loading......" /></span>
+    </div>
+
+    <!--  HEADER -->
+    <div id="header-placeholder"></div>
+    <!-- end main-header  -->
+
+    <!--  HOME #1 BANNER BLOCK  -->
+
+        <section class="section-content-block">
+        <div class="container">
+
+            <div class="row section-heading-wrapper">
+
+                <div class="col-md-12 col-sm-12" style="text-align: center;">
+                    <h2>Achievements <span>Through the Years</span></h2>
+                   
+                </div> <!-- end .col-sm-12  -->
+            </div>
+
+            <div class="timeline" >
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2017</h3>
+                        <p>Established in Maharashtra with a vision to
+support education for underprivileged
+children.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2018</h3>
+                        <p>Expanded programs to Assam and West
+bengal. Reached milestone of supporting
+50 students.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2019</h3>
+                        <p>Received formal recognition and approval under section
+80G of the Income Tax Act.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2023</h3>
+                        <p>Executed our First Educational Infra
+Project under the auspices of Corporate
+CSR donation.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2024</h3>
+                        <p>Doubled our impact to 100+ students with
+comprehensive educational support.</p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- START FOOTER  -->
+
+<div id="footer-placeholder"></div>
+
+    <!-- END FOOTER  -->
+
+<script>
+    window.currentPage = "about"; // Or set appropriate page name
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Load header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                highlightMenu();
+                loadRazorpayButton(); // ✅ Inject Razorpay after header is loaded
+            });
+
+        // Load footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    });
+
+    function highlightMenu() {
+        if (!window.currentPage) return;
+
+        var links = document.querySelectorAll('.nav.navbar-nav li a');
+        links.forEach(function(link) {
+            var page = link.getAttribute('data-page');
+            if (page === window.currentPage) {
+                link.classList.add('link-active');
+            }
+        });
+    }
+
+    function loadRazorpayButton() {
+        const container = document.getElementById('razorpay-button-form');
+        if (!container) return;
+
+        container.innerHTML = ""; // clear old if any
+
+        const script = document.createElement('script');
+        script.src = "https://checkout.razorpay.com/v1/payment-button.js";
+        script.setAttribute("data-payment_button_id", "pl_FR1fOi1ew0Qjjm");
+        script.async = true;
+        container.appendChild(script);
+    }
+</script>
+
+    <!-- Back To Top Button  -->
+
+    <a id="backTop">Back To Top</a>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery.backTop.min.js "></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/waypoints-sticky.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/venobox.min.js"></script>
+    <script src="js/custom-scripts.js"></script>
+
+
+
+
+
+</body>
+
+</html>

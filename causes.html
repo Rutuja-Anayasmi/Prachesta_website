@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>Prachesta Charitable Trust</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Generosity - Charity, Fundraising & Non-Profit HTML5 Template">
+    <meta name="author" content="xenioushk">
+    <link rel="shortcut icon" href="images/logo_1_.png" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    <!-- The styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/owl.carousel.min.css" rel="stylesheet" type="text/css">
+    <link href="css/animate.css" rel="stylesheet" type="text/css">
+    <link href="css/venobox.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+    <div id="preloader">
+        <span class="margin-bottom"><img src="images/loader.gif" alt="Loading......" /></span>
+    </div>
+
+    <!--  HEADER -->
+
+        <div id="header-placeholder"></div> 
+    
+    <!-- end main-header  -->
+
+    <!--  PAGE HEADING -->
+    <!--
+        <section class="page-header" data-stellar-background-ratio="0.1">
+
+            <div class="container">
+
+              <div class="row">
+
+                  <div class="col-sm-12 text-center">
+
+
+                      <h3>
+                         Causes Lists
+                      </h3>
+
+                      <p class="page-breadcrumb">
+                          <a href="#">Home</a> / All Causes
+                      </p>
+
+
+                  </div>-->
+
+    </div> <!-- end .row  -->
+
+    </div> <!-- end .container  -->
+
+    </section> <!-- end .page-header  -->
+
+    <!--  MAIN CONTENT  -->
+
+    <!--  CAUSE SECTION #2  -->
+
+    <section class="section-content-block">
+
+        <div class="container">
+
+            <div class="row section-heading-wrapper">
+
+                <div class="col-md-12 col-sm-12 text-left">
+                    <h2>Our <span>Work</span></h2>
+                    <h4>Prachesta's work is driven by a profound commitment to giving back to society and creating a
+                        more empowered India. Their impact extends beyond individual support to systemic change:</h4>
+                    <ol>
+                        <li> <strong>Sustainable Educational Infrastructure: </strong> An overarching objective is to expand
+                            activities for wider societal impact by creating sustainable educational
+                            infrastructure for the underprivileged. This includes planning projects for
+                            sustainable financial and infrastructure support for slum children to ensure their
+                            induction and continuity in the formal education system. </li>
+                        <li> <strong> Through Education: </strong> Prachesta firmly believes that education is the
+                            key to empowerment. Pratiksha's success, for example, has encouraged and inspired
+                            her entire community, re-emphasising the belief about empowerment through
+                            education. The organisation aligns with initiatives like "Beti Padhao Beti Bachao"
+                            to empower the girl child. </li>
+                        <li><strong> Support: </strong> By supporting over 1000 destitute lives and aiding families
+                            during crises, Prachesta embodies the spirit of empathy and support, building
+                            stronger, more resilient communities. </li>
+                        <li><strong> Future Vision: </strong> Prachesta is enthusiastic about undertaking many more projects,
+                            leveraging the support of various companies through their CSR funds to continue
+                            making a meaningful impact on skill development and academic enhancement within
+                            communities. They strive for a world where every child's potential is nurtured, every
+                            dream is supported, and every future is empowered, continuing to break barriers and
+                            pave the way for a future where education knows no boundaries. </li>
+                    </ol>
+
+                    <h4 style="font-weight: bold;">Watch the video below to see how our work is transforming lives
+                        across Maharashtra. </h4>
+                </div> <!-- end .col-sm-10  -->
+
+            </div> <!-- end .row  -->
+
+
+
+
+        </div> <!-- end .container  -->
+
+    </section> <!-- end .cause-section  -->
+
+    <!--  SECTION CTA #1 -->
+
+    <section class="section-content-block section-cta" style="margin-bottom:150px;margin-top:-40px;">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-center">
+                    <div class="cta-content-1 wow pulse" data-wow-iteration="2" data-wow-duration="0.3s">
+
+                        <!-- Play icon triggers hidden video in popup -->
+                        <a class="banner-video-icon venobox vbox-item" data-vbtype="inline" href="#popup-video">
+                            <i class="fa fa-play"></i>
+                        </a>
+
+                        <h2>Awesome Voluntary Work</h2>
+                        <a class="btn btn-custom" href="">Join With Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden video -->
+        <div id="popup-video" class="popup-video">
+            <video class="popup-video__player" controls autoplay muted>
+                <source src="images/Prachesta_info/testimonial_1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+
+
+    </section> <!--  end .section-cta-->
+
+
+    <!-- START FOOTER  -->
+
+<div id="footer-placeholder"></div>
+
+    <!-- END FOOTER  -->
+    <script>
+    window.currentPage = "work"; // For index.html
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Load header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                highlightMenu(); // Run after header is loaded
+            });
+
+        // Load footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    });
+
+    function highlightMenu() {
+        if (!window.currentPage) return;
+
+        var links = document.querySelectorAll('.nav.navbar-nav li a');
+
+        links.forEach(function(link) {
+            var page = link.getAttribute('data-page');
+            if (page === window.currentPage) {
+                link.classList.add('link-active');
+            }
+        });
+    }
+
+    window.addEventListener('load', function() {
+        const container = document.getElementById('razorpay-button-form');
+        if (!container) return;
+
+        const script = document.createElement('script');
+        script.src = "https://checkout.razorpay.com/v1/payment-button.js";
+        script.setAttribute("data-payment_button_id", "pl_FR1fOi1ew0Qjjm");
+        script.async = true;
+        container.appendChild(script);
+    });
+</script>
+    <!-- Back To Top Button  -->
+
+    <a id="backTop">Back To Top</a>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery.backTop.min.js "></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/waypoints-sticky.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/venobox.min.js"></script>
+    <script src="js/custom-scripts.js"></script>
+</body>
+
+</html>
